@@ -19,6 +19,7 @@ public class Exercicio2 {
 			}
 		}
 		System.out.printf("A soma das pessoas é: %d", soma);
+		sc.close();
 	}
 
 }
