@@ -20,6 +20,7 @@ public class Exercicio1 {
 				verdadeiro = false;
 			}
 		}
+		sc.close();
 	}
 
 }
