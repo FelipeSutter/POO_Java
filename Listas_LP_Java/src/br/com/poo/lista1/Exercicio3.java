@@ -91,8 +91,15 @@ public class Exercicio3 {
 						System.out.println("Divisao por zero...");
 						break;
 					}
-					else {
-						System.out.printf("O resultado eh: %.2f\n", (double) n1/n2);
+					else if (n1 % n2 == 0){
+						System.out.printf("O resultado eh: %d\n", n1/n2);
+						break;
+					}
+					else if (n1 % n2 != 0) {
+						double aux1, aux2;
+						aux1 = n1;
+						aux2 = n2;
+						System.out.printf("O resultado eh: %.2f\n", aux1/aux2);
 						break;
 					}
 				
