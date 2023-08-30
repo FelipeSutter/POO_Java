@@ -12,7 +12,7 @@ public class Exercicio5 {
 		if(horas < 0) {
 			horas *= -1;
 		}
-		System.out.printf("1 hora = 3600 segundos.\n%.0f hora(s) x 3600 segundos eh: %.0f segundos.", horas, horas * 3600);
+		System.out.printf("1 hora = 3600 segundos.\n%.1f hora(s) x 3600 segundos eh: %.0f segundos.", horas, horas * 3600);
 		sc.close();
 	}
 
