@@ -12,11 +12,13 @@ public class MainBalanco {
 		bi.soma(100);
 		bi.soma(100,200);
 		bi.soma(100,200,300);
+		System.out.println();
 		
 		bd.soma();
 		bd.soma(10);
 		bd.soma(100,200);
 		bd.soma(0, 0, 0);
+		System.out.println();
 		
 		big.soma();
 		big.soma(new BigDecimal(200));
