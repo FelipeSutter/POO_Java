@@ -12,26 +12,32 @@ public class BalancoBigD {
 	private static Logger logger = Logger.getLogger(BalancoBigD.class.getName());
 	
 	public BigDecimal soma() {
-		//System.out.printf("A soma total do trimestre eh: %d\n", somaTotal);
-		logger.log(Level.INFO, "A soma total do trimestre eh: " + somaTotal);
-		// olhar o sonarLint no logger e achar uma solução do pq o sublinhado
+		String mensagem = String.format("A soma total do trimestre eh: %.2f", somaTotal);
+		logger.log(Level.INFO,mensagem);
+		logger.log(Level.INFO,"A soma total do trimestre eh: {0}\n", somaTotal);
 		return somaTotal;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro) {
-		System.out.printf("A soma de janeiro eh: %.2f\n", janeiro);
+		String mensagem = String.format("A soma total do trimestre eh: %.2f", janeiro);
+		logger.log(Level.INFO,mensagem);
+		logger.log(Level.INFO,"A soma total do trimestre eh: {0}\n", janeiro);
 		return janeiro;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro, BigDecimal fevereiro) {
-		BigDecimal somaTotal = janeiro.add(fevereiro);
-		System.out.printf("A soma do bimestre eh: %.2f\n", somaTotal);
-		return somaTotal;
+		BigDecimal somaTotal1 = janeiro.add(fevereiro);
+		String mensagem = String.format("A soma do bimestre eh: %.2f", somaTotal1);
+		logger.log(Level.INFO,mensagem);
+		logger.log(Level.INFO,"A soma do bimestre eh: {0}\n", somaTotal1);
+		return somaTotal1;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro, BigDecimal fevereiro, BigDecimal marco) {
-		BigDecimal somaTotal = janeiro.add(fevereiro).add(marco);
-		System.out.printf("A soma do trimestre eh: %.2f\n", somaTotal);
-		return somaTotal;
+		BigDecimal somaTotal2 = janeiro.add(fevereiro).add(marco);
+		String mensagem = String.format("A soma do bimestre eh: %.2f", somaTotal2);
+		logger.log(Level.INFO,mensagem);
+		logger.log(Level.INFO,"A soma do bimestre eh: {0}\n", somaTotal2);
+		return somaTotal2;
 	}
 }
