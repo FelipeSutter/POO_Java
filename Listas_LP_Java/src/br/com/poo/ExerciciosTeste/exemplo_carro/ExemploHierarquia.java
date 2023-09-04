@@ -1,4 +1,4 @@
-package br.com.poo.ExerciciosTeste.ExCarro;
+package br.com.poo.ExerciciosTeste.exemplo_carro;
 
 public class ExemploHierarquia {
 	
