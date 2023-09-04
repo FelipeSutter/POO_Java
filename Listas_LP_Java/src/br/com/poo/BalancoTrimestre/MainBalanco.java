@@ -22,19 +22,17 @@ public class MainBalanco {
 		
 		BalancoDouble bd = new BalancoDouble();
 		BalancoBigD big = new BalancoBigD();
-		
+		System.out.println("\nInteger:");
 		bi.soma();
 		bi.soma(100);
 		bi.soma(100,200);
 		bi.soma(100,200,300);
-		System.out.println();
-		
+		System.out.println("\nDouble:");
 		bd.soma();
 		bd.soma(10);
 		bd.soma(100,200);
-		bd.soma(0, 0, 0);
-		System.out.println();
-		
+		bd.soma(1000, 20, 10);
+		System.out.println("\nBigDecimal:");
 		big.soma();
 		big.soma(new BigDecimal(200));
 		big.soma(new BigDecimal(300),new BigDecimal(400));
