@@ -1,6 +1,7 @@
 package br.com.poo.BalancoTrimestre;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,35 +10,32 @@ public class BalancoBigD {
 	private BigDecimal gastoFevereiro = new BigDecimal(23000);
 	private BigDecimal gastoMarco = new BigDecimal(17000);
 	private BigDecimal somaTotal = gastoJaneiro.add(gastoFevereiro).add(gastoMarco);
-	private static Logger logger = Logger.getLogger(BalancoBigD.class.getName());
+	private Logger customLogger = Util.setupLogger();
+	private DecimalFormat df = new DecimalFormat("#,###.00");
 	
 	public BigDecimal soma() {
-		String mensagem = String.format("A soma total do trimestre eh: %.2f", somaTotal);
-		logger.log(Level.INFO,mensagem);
-		logger.log(Level.INFO,"A soma total do trimestre eh: {0}\n", somaTotal);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "\nO balanço trimestral é: " + df.format(somaTotal));
 		return somaTotal;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro) {
-		String mensagem = String.format("A soma total do trimestre eh: %.2f", janeiro);
-		logger.log(Level.INFO,mensagem);
-		logger.log(Level.INFO,"A soma total do trimestre eh: {0}\n", janeiro);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "A soma de janeiro eh: " + df.format(janeiro));
 		return janeiro;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro, BigDecimal fevereiro) {
 		BigDecimal somaTotal1 = janeiro.add(fevereiro);
-		String mensagem = String.format("A soma do bimestre eh: %.2f", somaTotal1);
-		logger.log(Level.INFO,mensagem);
-		logger.log(Level.INFO,"A soma do bimestre eh: {0}\n", somaTotal1);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "A soma do bimestre eh: " + df.format(somaTotal1));
 		return somaTotal1;
 	}
 	
 	public BigDecimal soma(BigDecimal janeiro, BigDecimal fevereiro, BigDecimal marco) {
 		BigDecimal somaTotal2 = janeiro.add(fevereiro).add(marco);
-		String mensagem = String.format("A soma do bimestre eh: %.2f", somaTotal2);
-		logger.log(Level.INFO,mensagem);
-		logger.log(Level.INFO,"A soma do bimestre eh: {0}\n", somaTotal2);
+		Util.customizer();
+		customLogger.log(Level.INFO, () -> "A soma do trimestre eh: " + df.format(somaTotal2));
 		return somaTotal2;
 	}
 }
