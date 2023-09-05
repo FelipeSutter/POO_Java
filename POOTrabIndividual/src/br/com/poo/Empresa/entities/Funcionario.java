@@ -1,0 +1,5 @@
+package br.com.poo.Empresa.entities;
+
+public class Funcionario {
+
+}

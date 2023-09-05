@@ -1,4 +1,4 @@
-package br.com.poo.FuncDep;
+package br.com.poo.Empresa;
 
 public class EmpresaMain {
 
