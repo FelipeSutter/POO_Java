@@ -1,9 +1,9 @@
-package br.com.poo.bancoExemplo;
+package br.com.poo.SistemaBanc.Contas;
 
 public class ContaBanco {
-	int numero;
-	String titular;
-	double saldo;
+	private int numero;
+	private String titular;
+	private double saldo;
 	
 	public ContaBanco(int numero, String titular, double saldo) {
 		this.numero = numero;
@@ -15,6 +15,20 @@ public class ContaBanco {
 	public String toString() {
 		return "ContaBanco |\nNúmero = " + numero + "\nTitular = " + titular + "\nSaldo = " + saldo;
 	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public String getTitular() {
+		return titular;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	
 	
 	
 }

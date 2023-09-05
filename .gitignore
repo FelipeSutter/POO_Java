@@ -28,3 +28,9 @@ replay_pid*
 /Listas_LP_Java/.gitignore
 /Listas_LP_Java/.settings
 /Listas_LP_Java/bin
+
+/POOTrabIndividual/.classpath
+/POOTrabIndividual/.project
+/POOTrabIndividual/.gitignore
+/POOTrabIndividual/.settings
+/POOTrabIndividual/bin

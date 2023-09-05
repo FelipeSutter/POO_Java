@@ -1,4 +1,6 @@
-package br.com.poo.bancoExemplo;
+package br.com.poo.SistemaBanc;
+
+import br.com.poo.SistemaBanc.Contas.ContaBanco;
 
 public class MainBanco {
 
