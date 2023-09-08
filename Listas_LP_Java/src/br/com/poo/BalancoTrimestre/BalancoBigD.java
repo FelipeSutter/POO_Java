@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import br.com.poo.util.Util;
+
 public class BalancoBigD {
 	private BigDecimal gastoJaneiro =  new BigDecimal(15000);
 	private BigDecimal gastoFevereiro = new BigDecimal(23000);
