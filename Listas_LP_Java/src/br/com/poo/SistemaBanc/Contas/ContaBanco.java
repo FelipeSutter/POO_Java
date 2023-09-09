@@ -1,9 +1,14 @@
 package br.com.poo.SistemaBanc.Contas;
 
 public class ContaBanco {
+	
 	private int numero;
 	private String titular;
 	private double saldo;
+	
+	public ContaBanco() {
+		
+	}
 	
 	public ContaBanco(int numero, String titular, double saldo) {
 		this.numero = numero;
