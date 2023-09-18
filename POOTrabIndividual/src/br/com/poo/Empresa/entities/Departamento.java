@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Departamento {
-	private String nome;
+	
 	private Integer id;
+	private String nome;
 	private String telefone;
 	
 	public static Map<Integer, Departamento> mapaDepartamento = new HashMap<>();
@@ -14,10 +15,10 @@ public class Departamento {
 		
 	}
 	
-	public Departamento(String nome, Integer id, String telefone) {
+	public Departamento(Integer id, String nome, String telefone) {
 
-		this.nome = nome;
 		this.id = id;
+		this.nome = nome;
 		this.telefone = telefone;
 	}
 

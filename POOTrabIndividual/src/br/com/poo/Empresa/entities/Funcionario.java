@@ -9,6 +9,7 @@ public class Funcionario {
 	private String cpf;
 	private String telefone;
 	private String dataNasc;
+	private Integer departamentoId;
 	
 	public static Map<Integer, Funcionario> mapaFunc = new HashMap<>();
 	
@@ -16,13 +17,14 @@ public class Funcionario {
 		
 	}
 	
-	public Funcionario(Integer id, String nome, String cpf, String telefone, String dataNasc) {
+	public Funcionario(Integer id, String nome, String cpf, String telefone, String dataNasc, Integer departamentoId) {
 		
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.dataNasc = dataNasc;
+		this.departamentoId = departamentoId;
 	}
 
 	public Integer getId() {
@@ -51,7 +53,11 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "ID Funcionário: \t\t" + id + "\nNome: \t\t" + nome + "\nCPF: \t\t" + cpf + "\nTelefone: \t\t" + telefone + "\nData de Nascimento: \t\t" + dataNasc;
+		return "ID Funcionário: " + id + " Nome: " + nome + " CPF: " + cpf + " Telefone: " + telefone + " Data de Nascimento: " + dataNasc;
+	}
+
+	public Integer getDepartamentoId() {
+		return departamentoId;
 	}
 	
 	
