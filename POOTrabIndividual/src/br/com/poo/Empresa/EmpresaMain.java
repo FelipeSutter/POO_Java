@@ -75,7 +75,7 @@ public class EmpresaMain {
 		menuCarregando();
 		limpa();
 		Departamento dep = new Departamento("Invest agora", 2, "2234-9090");
-		Funcionario func = new Funcionario(1, "Robert", "12345677", "2223-4440", "2321-90-20",2);
+		Funcionario func = new Funcionario(1, "Roberta", "12345677", "2223-4440", "2321-90-20",2);
 		boolean verifica = true;
 		while(verifica) {
 			switch(menu(sc)) {

@@ -1,0 +1,5 @@
+------------------ RELATÓRIO DE FUNCIONARIO ------------------
+Nome do Funcionário: Roberta
+CPF do Funcionário: 12345677
+Relatório gerado em: 18/09/2023 19:40:14
+------------------     FIM DO RELATÓRIO     ------------------
