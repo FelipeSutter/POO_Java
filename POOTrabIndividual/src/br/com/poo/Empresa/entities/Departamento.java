@@ -15,10 +15,10 @@ public class Departamento {
 		
 	}
 	
-	public Departamento(Integer id, String nome, String telefone) {
+	public Departamento(String nome, Integer id,  String telefone) {
 
-		this.id = id;
 		this.nome = nome;
+		this.id = id;
 		this.telefone = telefone;
 	}
 
