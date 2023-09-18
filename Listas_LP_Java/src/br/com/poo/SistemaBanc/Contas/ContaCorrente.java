@@ -2,32 +2,31 @@ package br.com.poo.SistemaBanc.Contas;
 
 public class ContaCorrente extends ContaBanco {
 	
-	private double chequeEspecial;
-	private double tarifa;
+	private Double chequeEspecial;
+	private Double tarifa;
 	
 	public ContaCorrente() {
 		super();
 	}
 	
-	public ContaCorrente(int numero, String titular, double saldo, double chequeEspecial, double tarifa) {
-		super(numero, titular, saldo);
+	public ContaCorrente(String tipoConta,String numero, String cpf, Double saldo, Double chequeEspecial) {
+		super(tipoConta,numero, cpf, saldo);
 		this.chequeEspecial = chequeEspecial;
-		this.tarifa = tarifa;
 	}
 
-	public double getChequeEspecial() {
+	public Double getChequeEspecial() {
 		return chequeEspecial;
 	}
 
-	public void setChequeEspecial(double chequeEspecial) {
+	public void setChequeEspecial(Double chequeEspecial) {
 		this.chequeEspecial = chequeEspecial;
 	}
 
-	public double getTarifa() {
+	public Double getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifa(double tarifa) {
+	public void setTarifa(Double tarifa) {
 		this.tarifa = tarifa;
 	}
 	

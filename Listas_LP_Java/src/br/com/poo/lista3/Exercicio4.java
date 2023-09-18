@@ -2,7 +2,7 @@ package br.com.poo.lista3;
 
 import java.util.Random;
 
-import br.com.poo.BalancoTrimestre.Util;
+import br.com.poo.util.Util;
 
 public class Exercicio4 {
 

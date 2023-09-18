@@ -2,22 +2,21 @@ package br.com.poo.SistemaBanc.Contas;
 
 public class ContaPoupanca extends ContaBanco {
 	
-	private double rendimento;
+	private Double rendimento;
 
 	public ContaPoupanca() {
 		super();
 	}
 
-	public ContaPoupanca(int numero, String titular, double saldo, double rendimento) {
-		super(numero, titular, saldo);
-		this.rendimento = rendimento;
+	public ContaPoupanca(String tipoConta,String numero, String cpf, Double saldo) {
+		super(tipoConta,numero, cpf, saldo);
 	}
 
-	public double getRendimento() {
+	public Double getRendimento() {
 		return rendimento;
 	}
 
-	public void setRendimento(double rendimento) {
+	public void setRendimento(Double rendimento) {
 		this.rendimento = rendimento;
 	}
 	

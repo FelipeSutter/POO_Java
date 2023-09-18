@@ -1,4 +1,4 @@
-package br.com.poo.BalancoTrimestre;
+package br.com.poo.util;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;

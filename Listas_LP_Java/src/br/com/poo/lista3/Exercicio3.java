@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import br.com.poo.BalancoTrimestre.Util;
+import br.com.poo.util.Util;
 
 public class Exercicio3 {
 

@@ -1,31 +1,66 @@
 package br.com.poo.SistemaBanc.pessoas;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Funcionario {
-	private String nome;
-	private String cpf;
-	private double salario;
 	
+	private String tipoFuncionario;
+	private Double salario;
+	private String agencia;
+	private String cpf;
+	private String nome;
+	private String senha;
+	
+	public static Map<String, Funcionario> funcionarios = new HashMap<>();
+
 	public Funcionario() {
-		super();
+	
 	}
 
-	public Funcionario(String nome, String cpf, double salario) {
-		super();
-		this.nome = nome;
-		this.cpf = cpf;
+
+	public Funcionario(String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha) {
+		this.tipoFuncionario = tipoFuncionario;
 		this.salario = salario;
+		this.agencia = agencia;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.senha = senha;
+	}
+	
+	public String getTipoFuncionario() {
+		return tipoFuncionario;
 	}
 
-	public String getNome() {
-		return nome;
+	public Double getSalario() {
+		return salario;
 	}
+
+
+	public String getAgencia() {
+		return agencia;
+	}
+
 
 	public String getCpf() {
 		return cpf;
 	}
 
-	public double getSalario() {
-		return salario;
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Funcionario [tipoFuncionario=" + tipoFuncionario + ", salario=" + salario + ", agencia=" + agencia
+				+ ", cpf=" + cpf + ", nome=" + nome + ", senha=" + senha + "]";
 	}
 	
 }
