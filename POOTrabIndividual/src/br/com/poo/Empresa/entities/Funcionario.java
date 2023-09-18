@@ -1,17 +1,22 @@
 package br.com.poo.Empresa.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Funcionario {
-	private int id;
+	private Integer id;
 	private String nome;
 	private String cpf;
 	private String telefone;
 	private String dataNasc;
 	
+	public static Map<Integer, Funcionario> mapaFunc = new HashMap<>();
+	
 	public Funcionario() {
 		
 	}
 	
-	public Funcionario(int id, String nome, String cpf, String telefone, String dataNasc) {
+	public Funcionario(Integer id, String nome, String cpf, String telefone, String dataNasc) {
 		
 		this.id = id;
 		this.nome = nome;
@@ -20,7 +25,7 @@ public class Funcionario {
 		this.dataNasc = dataNasc;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

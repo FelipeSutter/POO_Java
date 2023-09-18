@@ -1,22 +1,27 @@
 package br.com.poo.Empresa.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Departamento {
-	private int id;
 	private String nome;
+	private Integer id;
 	private String telefone;
+	
+	public static Map<Integer, Departamento> mapaDepartamento = new HashMap<>();
 	
 	public Departamento() {
 		
 	}
 	
-	public Departamento(int id, String nome, String telefone) {
+	public Departamento(String nome, Integer id, String telefone) {
 
-		this.id = id;
 		this.nome = nome;
+		this.id = id;
 		this.telefone = telefone;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

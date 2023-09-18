@@ -16,14 +16,15 @@ import java.util.stream.Collectors;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import br.com.poo.Empresa.entities.Departamento;
+import br.com.poo.Empresa.entities.Funcionario;
+import br.com.poo.Empresa.enums.departamentoEnum;
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
-import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.enums.ContaEnum;
 import br.com.poo.banco.enums.PessoasEnum;
 import br.com.poo.banco.pessoas.Cliente;
 import br.com.poo.banco.pessoas.Diretor;
-import br.com.poo.banco.pessoas.Funcionario;
 import br.com.poo.banco.pessoas.Gerente;
 import br.com.poo.banco.pessoas.Presidente;
 
@@ -42,12 +43,10 @@ public class LeituraEscrita {
 			if (linha != null) {
 				contador++;
 				String[] dados = linha.split(";");
-				if (dados[0].equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
-					// String tipoConta,String numConta, String numAgencia, String cpf, Double saldo
-					ContaPoupanca cp = new ContaPoupanca(dados[0], dados[1], dados[2], dados[3],
-							Double.parseDouble(dados[4]));
-					Conta.mapaContas.put(dados[3], cp); // identificador unico, o cpf da conta dados[3]
-
+				if (dados[0].equals(departamentoEnum.values())) {
+					// String nome, Integer id, String telefone
+					Departamento d = new Departamento(dados[0], Integer.parseInt(dados[1]), dados[2]);
+					Departamento.mapaDepartamento.put(Integer.parseInt(dados[1]), d);
 				} else if (dados[0].equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
 					// String tipoConta,String numConta, String numAgencia, String cpf, Double
 					// saldo, Double chequeEspecial
@@ -199,11 +198,12 @@ public class LeituraEscrita {
 		buffWriter.append("------------------ FIM Transferência --------------------\n");
 		buffWriter.close();
 	}
-	
+
 	public static void historicoTransacoes(Conta conta) throws IOException {
 		comprovanteSaldo(conta);
-		//comprovanteSaque(conta,)
-		// como eu vou chamar as informações do parâmetro dos outros comprovantes se essas
+		// comprovanteSaque(conta,)
+		// como eu vou chamar as informações do parâmetro dos outros comprovantes se
+		// essas
 		// informações eu só coloco pelo jframe na hora da transação?
 	}
 
@@ -226,80 +226,80 @@ public class LeituraEscrita {
 		buffWriter.append("Relatório do total de contas e total de saldo da mesma agência: \n");
 		buffWriter.append("Total de contas na agência " + gerente.getAgencia() + ": " + totalContas + "\n");
 		buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n");
-		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora)+"\n");
+		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
 		buffWriter.close();
 	}
-	
+
 	public static void gerarRelatorioDiretor(Funcionario diretor, Map<String, Conta> contas) throws IOException {
-	    String path = diretor.getTipoFuncionario() + "_" + diretor.getCpf();
-	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
-	    LocalDateTime dataHora = LocalDateTime.now();
-	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		String path = diretor.getTipoFuncionario() + "_" + diretor.getCpf();
+		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-	    // Filtrar contas pela agência do diretor e ordenar por nome
-	    List<Conta> contasDiretor = contas.values().stream()
-	            .filter(conta -> conta.getNumAgencia().equals(diretor.getAgencia()))
-	            .sorted(Comparator.comparing(Conta::getNumConta))
-	            .collect(Collectors.toList());
+		// Filtrar contas pela agência do diretor e ordenar por nome
+		List<Conta> contasDiretor = contas.values().stream()
+				.filter(conta -> conta.getNumAgencia().equals(diretor.getAgencia()))
+				.sorted(Comparator.comparing(Conta::getNumConta)).collect(Collectors.toList());
 
-	    buffWriter.append("Relatório de clientes da agência " + diretor.getAgencia() + ":\n");
+		buffWriter.append("Relatório de clientes da agência " + diretor.getAgencia() + ":\n");
 
-	    for (Conta conta : contasDiretor) {
-	        buffWriter.append("Numero da Conta: " + conta.getNumConta() + ", CPF: " + conta.getCpf() + ", Agência: " + conta.getNumAgencia() + "\n");
-	    }
+		for (Conta conta : contasDiretor) {
+			buffWriter.append("Numero da Conta: " + conta.getNumConta() + ", CPF: " + conta.getCpf() + ", Agência: "
+					+ conta.getNumAgencia() + "\n");
+		}
 
-	    buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
-	    buffWriter.close();
+		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
+		buffWriter.close();
 	}
 
 	private static String obterNomeGerente(Map<String, Funcionario> funcionarios, String agenciaControle) {
-        for (Funcionario funcionario : funcionarios.values()) {
-            if (funcionario.getAgencia().equals(agenciaControle)
-                    && funcionario.getTipoFuncionario().equals("Gerente")) {
-                return funcionario.getNome();
-            }
-        }
-        return "Não encontrado";
-    }
-    
-    public static void gerarRelatorioPresidente(Funcionario presidente,Map<String, Funcionario> funcionarios, Map<String, Conta> contas) throws IOException {
-        String path = presidente.getTipoFuncionario() + "_" + presidente.getCpf();
-        BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
-        LocalDateTime dataHora = LocalDateTime.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		for (Funcionario funcionario : funcionarios.values()) {
+			if (funcionario.getAgencia().equals(agenciaControle)
+					&& funcionario.getTipoFuncionario().equals("Gerente")) {
+				return funcionario.getNome();
+			}
+		}
+		return "Não encontrado";
+	}
 
-        buffWriter.append("Relatório da lista de diretores e suas respectivas agências de controle:\n");
+	public static void gerarRelatorioPresidente(Funcionario presidente, Map<String, Funcionario> funcionarios,
+			Map<String, Conta> contas) throws IOException {
+		String path = presidente.getTipoFuncionario() + "_" + presidente.getCpf();
+		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        for (Funcionario func : funcionarios.values()) {
-            if (func.getTipoFuncionario().equals("Diretor")) {
-                String agenciaControle = func.getAgencia();
-                String gerenteAgencia = obterNomeGerente(funcionarios, agenciaControle);
-                buffWriter.append("Diretor: " + func.getNome() + ", Agência de Controle: " + agenciaControle);
-                buffWriter.append(", Gerente da Agência: " + gerenteAgencia + "\n");
-            }
-        }
-        
-        double totalCapital = 0;
-        for (Conta conta : contas.values()) {
-            totalCapital += conta.getSaldo();
-        }
-        
-        buffWriter.append("Valor Total do Capital no Banco: " + totalCapital + "\n");
-        buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
+		buffWriter.append("Relatório da lista de diretores e suas respectivas agências de controle:\n");
 
-        buffWriter.close();
-    }
+		for (Funcionario func : funcionarios.values()) {
+			if (func.getTipoFuncionario().equals("Diretor")) {
+				String agenciaControle = func.getAgencia();
+				String gerenteAgencia = obterNomeGerente(funcionarios, agenciaControle);
+				buffWriter.append("Diretor: " + func.getNome() + ", Agência de Controle: " + agenciaControle);
+				buffWriter.append(", Gerente da Agência: " + gerenteAgencia + "\n");
+			}
+		}
 
-	
+		double totalCapital = 0;
+		for (Conta conta : contas.values()) {
+			totalCapital += conta.getSaldo();
+		}
+
+		buffWriter.append("Valor Total do Capital no Banco: " + totalCapital + "\n");
+		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
+
+		buffWriter.close();
+	}
+
 	public static void comprovanteSeguro(Conta conta, String valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
 		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
-		
+
 		Double valorTotal = Double.parseDouble(valor) * 0.20;
 		DecimalFormat df = new DecimalFormat("#,###.00");
 		LocalDateTime dataHora = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		
+
 		buffWriter.append("------------------ Seguro de Vida ------------------\n");
 		buffWriter.append("CPF: " + conta.getCpf() + "\n");
 		buffWriter.append("Conta: " + conta.getNumConta() + "\n");
