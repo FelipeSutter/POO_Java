@@ -80,23 +80,25 @@ public class LeituraEscrita {
 		buffWriter.close();
 	}
 	
-	public static void mostrarDepartamento(Departamento dep) {
-		customLogger.log(Level.INFO, () -> "------------------ RELATÓRIO DE DEPARTAMENTO ------------------");
-		customLogger.log(Level.INFO, () -> "Nome do Departamento: " + dep.getNome());
-		customLogger.log(Level.INFO, () -> "Quantidade de Funcionários: " + Funcionario.mapaFunc.size());
-	    LocalDateTime dataHora = LocalDateTime.now();
-	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-	    customLogger.log(Level.INFO, () -> "Relatório gerado em: " + dtf.format(dataHora));
-	    customLogger.log(Level.INFO, () -> "------------------ FIM DO RELATÓRIO ------------------");
-	}
+	public static void mostrarDepartamento(Departamento dep) throws IOException {
+		String path = dep.getNome() + "_" + dep.getId();
+        try (BufferedReader reader = new BufferedReader(new FileReader(PATH_BASICO + path + EXTENSAO))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+            	Util.customizer();
+            	customLogger.log(Level.INFO, linha);
+            }
+        }
+    }
 	
-	public static void mostrarFuncionario(Funcionario func) {
-		customLogger.log(Level.INFO, () -> "------------------ RELATÓRIO DE FUNCIONARIO ------------------");
-		customLogger.log(Level.INFO, () -> "Nome do Funcionário: " + func.getNome());
-		customLogger.log(Level.INFO, () -> "CPF do Funcionário: " + func.getCpf());
-	    LocalDateTime dataHora = LocalDateTime.now();
-	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-	    customLogger.log(Level.INFO, () -> "Relatório gerado em: " + dtf.format(dataHora));
-	    customLogger.log(Level.INFO, () -> "------------------     FIM DO RELATÓRIO     ------------------");
-	}
+	public static void mostrarFuncionario(Funcionario func) throws IOException {
+		String path = func.getNome() + "_" + func.getCpf();
+        try (BufferedReader reader = new BufferedReader(new FileReader(PATH_BASICO + path + EXTENSAO))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+            	Util.customizer();
+            	customLogger.log(Level.INFO, linha);
+            }
+        }
+    }
 }

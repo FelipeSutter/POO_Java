@@ -18,3 +18,8 @@ Nome do Departamento: Invest agora
 Quantidade de Funcionários: 8
 Relatório gerado em: 18/09/2023 19:02:41
 ------------------ FIM DO RELATÓRIO ------------------
+------------------ RELATÓRIO DE DEPARTAMENTO ------------------
+Nome do Departamento: Invest agora
+Quantidade de Funcionários: 8
+Relatório gerado em: 18/09/2023 19:20:52
+------------------ FIM DO RELATÓRIO ------------------
