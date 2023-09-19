@@ -1,4 +1,27 @@
-<h1 align="center">Departamento X Funcionário</h1>
-<p>Nesse trabalho utilizei duas classes em Java, baseado em outro exercício de BD.<br>As Classes são Departamento e Funcionário</p>
-<h2>Classes e Atributos</h2>
+<h1 align="center">✨ Departamento X Funcionário ✨</h1>
+<p><b>Nesse trabalho utilizei duas classes em Java, baseado em outro exercício de BD.<br>As Classes são Departamento e Funcionário</b></p>
+<h2>Classes</h2>
 <li>Departamento</li>
+<li>Funcionário</li>
+<h2>Atributos de Departamento</h2>
+<li>Nome</li>
+<li>Id</li>
+<li>Telefone</li>
+<h2>Atributos de Funcionário</h2>
+<li>Nome</li>
+<li>Id</li>
+<li>Telefone</li>
+<li>CPF</li>
+<li>Data de Nascimento</li>
+<li>departamentoId</li>
+
+<h2>Relatórios</h2>
+
+![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/0cfbb83b-36bd-41c8-adb3-c5b77bad1d54)
+
+<hr>
+
+![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/edbeb1c3-95a9-4208-89d6-284e63810ad4)
+
+
+
