@@ -19,9 +19,17 @@
 
 ![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/0cfbb83b-36bd-41c8-adb3-c5b77bad1d54)
 
+
 <hr>
 
 ![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/edbeb1c3-95a9-4208-89d6-284e63810ad4)
+
+<h2>Técnologias Utilizadas</h2>
+<li>Java 11</li>
+<li>Spring Tools</li>
+
+<h2>Autor</h2>
+![https://github.com/FelipeSutter]Felipe
 
 
 
