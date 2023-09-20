@@ -29,7 +29,7 @@
 <li>Spring Tools</li>
 
 <h2>Autor</h2>
-![https://github.com/FelipeSutter]Felipe
+<a href="https://github.com/FelipeSutter">Felipe Sutter</a>
 
 
 
