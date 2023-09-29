@@ -17,12 +17,14 @@
 
 <h2>Relatórios</h2>
 
-![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/0cfbb83b-36bd-41c8-adb3-c5b77bad1d54)
+![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/c47e3425-411f-41dd-b1a8-f6016f13671d)
+
 
 
 <hr>
 
-![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/edbeb1c3-95a9-4208-89d6-284e63810ad4)
+![image](https://github.com/FelipeSutter/POO_Java/assets/114835043/1d0363e7-0e0c-447c-a70e-af961eb7cff4)
+
 
 <h2>Técnologias Utilizadas</h2>
 <li>Java 11</li>
